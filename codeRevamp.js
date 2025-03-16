@@ -13,6 +13,8 @@ let setCountdownClosed = async (lengthInSeconds) => { //A simple function inputs
     })
 }
 
+let audio = new Audio('alarmSound.mp3');
+
 let setCountdown = async (lengthInSeconds,displayElement=timerDisplay) => { //A simple function inputs a number of seconds and outputs true when it passed
     return new Promise((resolve) => {
         let timerIntervalID = setInterval(() => {
@@ -23,6 +25,7 @@ let setCountdown = async (lengthInSeconds,displayElement=timerDisplay) => { //A 
         }
             else if (lengthInSeconds <= 0) {
         clearInterval(timerIntervalID)
+        audio.play()
         resolve(true);
     } 
         }, 1000)    
