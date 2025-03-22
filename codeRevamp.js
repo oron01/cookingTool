@@ -49,11 +49,11 @@ let cookEgg = async (client="terminal") => {
 
 let cookRice = async (client="terminal") => {
     //Stage one
-    display(client,"Two and a half cups of rice to a pot)")
+    display(client,"4 cups of rice to a pot)")
     await getResponse(client,"rice in pot")
     display(client,"wash three times")
     await getResponse(client,"rice washed?")
-    display(client,"pour 3 and a half cups of water into kettle and activate")
+    display(client,"pour 6 cups of water into kettle and activate")
     await getResponse(client,"3.5 cups in kettle activated?")
     display(client,"Pour kettle water to pot")
     await getResponse(client,"pot water boiling?")
