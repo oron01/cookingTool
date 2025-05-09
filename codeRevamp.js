@@ -13,6 +13,9 @@ let setCountdownClosed = async (lengthInSeconds) => { //A simple function inputs
     })
 }
 
+const riceSong = new Audio('XueHue.mp3');
+riceSong.loop = true; // This makes it loop
+
 let audio = new Audio('alarmSound.mp3');
 
 let setCountdown = async (lengthInSeconds,displayElement=timerDisplay) => { //A simple function inputs a number of seconds and outputs true when it passed
@@ -49,20 +52,26 @@ let cookEgg = async (client="terminal") => {
 
 let cookRice = async (client="terminal") => {
     //Stage one
+    riceSong.play();
     display(client,"4 cups of rice to a pot)")
-    await getResponse(client,"rice in pot")
+    await getResponse(client,"rice in pot?")
     display(client,"wash three times")
     await getResponse(client,"rice washed?")
     display(client,"pour 6 cups of water into kettle and activate")
-    await getResponse(client,"3.5 cups in kettle activated?")
-    display(client,"Pour kettle water to pot")
+    await getResponse(client,"6 cups in kettle activated?")
+    display(client,"Pour kettle water to pot and activate")
+    await getResponse(client,"kettle water boiling?")
+    display(client,"pour kettle water to pot turn heat and close lid")
+    await getResponse(client,"wait two minutes to set up timer")
+    await setCountdown(60*2)
+    display(client,"boiling timer is in progress")
     await getResponse(client,"pot water boiling?")
-    display(client,"wait for boil")
-    display(client,"timer is in progress")
     await setCountdown(60*9)
+    display(client,"cooking timer is in progress")
     display(client,"The cooking has been complete, heat off")
     await getResponse(client,"confirm")
     display(client,"done")
+    riceSong.pause()
 
 }
 
